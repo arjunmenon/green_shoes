@@ -212,6 +212,10 @@ class Shoes
       (click_proc = args[:click]; args.delete :click) if args[:click]
       b = Gtk::Button.new name
       b.set_size_request args[:width], args[:height] if args[:width] > 0 and args[:height] > 0
+      if args[:tooltip]
+      	tooltips = Gtk::Tooltips.new
+      	tooltips.set_tip( b, args[:tooltip], nil )
+      end
       @canvas.put b, args[:left], args[:top]
       b.show_now
       args[:real], args[:text], args[:app] = b, name, self
