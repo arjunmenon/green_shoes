@@ -120,7 +120,7 @@ class Object
 
   def get_win
     Gtk::Window.new.tap do |s|
-      s.icon = Gdk::Pixbuf.new File.join(DIR, '../static/gshoes-icon.png')
+      s.icon = GdkPixbuf::Pixbuf.new :file => File.join(DIR, '../static/gshoes-icon.png')
     end
   end
 end
