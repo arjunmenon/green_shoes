@@ -10,6 +10,7 @@ class Shoes
     args[:title] ||= 'green shoes'
     args[:left] ||= 0
     args[:top] ||= 0
+    args[:resizable] ||= false
     projector = args[:prjct] = args[:projector]
     treeview = args[:trvw] = args[:treeview]
     [:projector, :treeview].each{|x| args.delete x}
@@ -21,7 +22,8 @@ class Shoes
 
     win = get_win
     win.title = args[:title]
-    win.set_default_size args[:width], args[:height]
+    win.set_size_request args[:width], args[:height]
+    win.set_resizable(args[:resizable])
     if args[:fullscreen]
       win.decorated = false
       win.maximize
