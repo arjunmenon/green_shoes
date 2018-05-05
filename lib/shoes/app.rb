@@ -32,7 +32,11 @@ class Shoes
       :mhcs, :mlcs, :shcs, :mcs, :win, :swin, :width_pre, :height_pre, :order, :dics, :fronts, :backs, :focusables, :focus_ele
     attr_writer :mouse_button, :mouse_pos
     attr_reader :link_style, :linkhover_style, :animates, :owner, :textcursors, :textmarkers, :location, :pinning_elements
-
+    
+    def set_window_title(title_text)
+      win.title = title_text
+    end
+	  
     def visit url
       if url =~ /^(http|https):\/\//
         Thread.new do
